@@ -625,9 +625,6 @@ SCREEN: ${width}×${height} pixels | Aspect ratio: 4:3 | Origin: (0,0) at TOP-LE
   return new Response(stream, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
-      "Pragma": "no-cache",
-      "Expires": "0",
       "X-Accel-Buffering": "no",
       "Transfer-Encoding": "chunked",
       "Connection": "keep-alive",
