@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 // Middleware to permanently disable all caching
+// Note: Excludes _next/static, _next/image, and favicon.ico as these assets
+// are meant to be cached for performance and are handled by Next.js
 export function middleware(request: NextRequest) {
   const response = NextResponse.next()
   
@@ -14,7 +16,7 @@ export function middleware(request: NextRequest) {
   return response
 }
 
-// Apply middleware to all routes
+// Apply middleware to all routes except static assets
 export const config = {
   matcher: [
     /*
