@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { randomUUID } from "crypto";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
@@ -16,7 +17,7 @@ const nextConfig: NextConfig = {
   // Generate unique build ID each time to prevent any build-level caching
   // Note: This will break incremental deployments but is required for complete cache prevention
   generateBuildId: async () => {
-    return `build-${Date.now()}-${Math.random().toString(36).substring(7)}`
+    return `build-${Date.now()}-${randomUUID()}`
   },
   // Add headers to disable caching globally
   async headers() {
